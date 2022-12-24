@@ -23,7 +23,7 @@ namespace SBI_Challange.ViewModels
         public string Title
         {
             get { return title; }
-            set { SetProperty(ref title, value); }
+            set { SetProperty(ref title, value); OnPropertyChanged(); }
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,

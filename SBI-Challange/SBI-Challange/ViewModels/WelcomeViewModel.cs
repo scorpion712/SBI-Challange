@@ -5,13 +5,17 @@ using Xamarin.Forms;
 
 namespace SBI_Challange.ViewModels
 {
+    [QueryProperty(nameof(Username), "username")]
     public class WelcomeViewModel : BaseViewModel
     {
-        public string LogoURL { get => "https://www.sbi-technology.com/assets/images/sitio/logo.svg";  }
+        private string _username;
+        public string Username { 
+            get { return _username; } 
+            set { if (_username == value) return; _username = value; OnPropertyChanged(); Title = value; } }
 
         public WelcomeViewModel()
         {
-            Title = "About";
+            Title = Username;
         }
 
     }

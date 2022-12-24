@@ -4,7 +4,7 @@
              x:Class="SBI_Challange.Views.WelcomePage"
              xmlns:vm="clr-namespace:SBI_Challange.ViewModels"
              xmlns:resources="clr-namespace:SBIChallange.Resources"
-             Title="{Binding Title}">
+             Title="{Binding Title, Mode=TwoWay}">
     
     <ContentPage.BindingContext>
         <vm:WelcomeViewModel />
