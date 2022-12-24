@@ -178,6 +178,15 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No se encuentran usuarios registrados..
+        /// </summary>
+        internal static string UsersListNotFound {
+            get {
+                return ResourceManager.GetString("UsersListNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bienvenido a SBI.
         /// </summary>
         internal static string WelcomeText {

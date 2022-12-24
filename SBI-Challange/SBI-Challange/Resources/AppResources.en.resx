@@ -156,6 +156,9 @@
   <data name="Username" xml:space="preserve">
     <value>Username</value>
   </data>
+  <data name="UsersListNotFound" xml:space="preserve">
+    <value>There are no users registered.</value>
+  </data>
   <data name="WelcomeText" xml:space="preserve">
     <value>Welcome to SBI</value>
   </data>
