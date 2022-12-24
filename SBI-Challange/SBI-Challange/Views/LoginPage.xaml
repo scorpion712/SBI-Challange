@@ -17,7 +17,8 @@
                 <Label Text="{x:Static resources:AppResources.Username}"
                        Style="{StaticResource FormLabelStyle}"/>
                 <Entry Style="{StaticResource FormEntryStyle}"
-                       Text="{Binding Username}"/>
+                       Text="{Binding Username}"
+                       ReturnType="Next"/>
             </StackLayout>
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand">
