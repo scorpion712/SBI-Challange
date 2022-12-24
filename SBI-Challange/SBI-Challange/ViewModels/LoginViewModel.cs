@@ -40,8 +40,16 @@ namespace SBI_Challange.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            var isUserValid = await loginService.ValidateUser(Username, Password);
+            if (isUserValid)
+            {
+                // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
+                await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("User Error", "Invalid user. Please double check your details or be aware of capitalization", "OK");
+            }
         }
     }
 }
