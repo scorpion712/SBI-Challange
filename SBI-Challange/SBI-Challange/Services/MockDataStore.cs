@@ -66,7 +66,7 @@ namespace SBI_Challange.Services
 
         public async Task<bool> ValidateUser(string username, string password)
         {
-            if (users.ContainsKey("username"))
+            if (users.ContainsKey(username))
             { 
                 return await Task.FromResult(users[username].Equals(password));
             }
