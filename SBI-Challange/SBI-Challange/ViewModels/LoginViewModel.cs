@@ -1,4 +1,5 @@
 ﻿using SBI_Challange.Views;
+using SBIChallange.Services.Interfaces;
 using System; 
 using Xamarin.Forms;
 
@@ -29,8 +30,11 @@ namespace SBI_Challange.ViewModels
 
         public Command LoginCommand { get; }
 
+        public ILoginService loginService;
+
         public LoginViewModel()
         {
+            loginService = DependencyService.Get<ILoginService>();
             LoginCommand = new Command(OnLoginClicked);
         }
 
