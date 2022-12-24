@@ -144,4 +144,7 @@
   <data name="Username" xml:space="preserve">
     <value>Usuario</value>
   </data>
+  <data name="WelcomeText" xml:space="preserve">
+    <value>Bienvenido a SBI</value>
+  </data>
 </root>

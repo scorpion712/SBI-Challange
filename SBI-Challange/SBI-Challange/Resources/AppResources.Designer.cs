@@ -140,5 +140,14 @@ namespace SBIChallange.Resources {
                 return ResourceManager.GetString("Username", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bienvenido a SBI.
+        /// </summary>
+        internal static string WelcomeText {
+            get {
+                return ResourceManager.GetString("WelcomeText", resourceCulture);
+            }
+        }
     }
 }
