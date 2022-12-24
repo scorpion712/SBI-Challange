@@ -160,4 +160,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_user%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo.png" />
+  </ItemGroup>
 </Project>
