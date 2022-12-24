@@ -5,7 +5,14 @@
       x:Class="SBIChallange.Helpers.Cells.UserCard"
       x:DataType="model:User"
       xmlns:local="clr-namespace:SBI_Challange.ViewModels"
+      xmlns:converters="clr-namespace:SBIChallange.Helpers.Converters"
       Padding="10">
+    <Grid.Resources>
+        <ResourceDictionary>
+            <converters:StatusToTextConverter x:Key="StatusToText" />
+            <converters:StatusToColorConverter x:Key="StatusToColor" />
+        </ResourceDictionary>
+    </Grid.Resources>
     <Frame CornerRadius="10">
         <StackLayout Orientation="Horizontal"
                      Spacing="10">
@@ -20,10 +27,12 @@
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
                        FontSize="13" />
-                <Label Text="{Binding Status}"
+                <Label Text="{Binding Status, Converter={StaticResource StatusToText}}"
                        LineBreakMode="NoWrap"
                        Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="10" />
+                       FontSize="10"
+                       TextColor="{Binding Status, Converter={StaticResource StatusToColor}}"
+                       FontAttributes="Bold"/>
             </StackLayout>
         </StackLayout>
     </Frame>
