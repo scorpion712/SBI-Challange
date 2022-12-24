@@ -1,5 +1,7 @@
 ﻿using SBI_Challange.Models;
 using SBI_Challange.Views;
+using SBIChallange.Resources;
+using SBIChallange.Services.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -11,6 +13,7 @@ namespace SBI_Challange.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         private User _selectedItem;
+        public IUserService userService;
 
         public ObservableCollection<User> Items { get; }
         public Command LoadItemsCommand { get; } 
@@ -22,7 +25,9 @@ namespace SBI_Challange.ViewModels
             Items = new ObservableCollection<User>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<User>(OnItemSelected); 
+            ItemTapped = new Command<User>(OnItemSelected);
+
+            userService = DependencyService.Get<IUserService>();
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -32,7 +37,11 @@ namespace SBI_Challange.ViewModels
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await userService.GetUsers();
+                if (items == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Algo salió mal al intentar cargar los usuarios. Por favor, reintente más tarde.", "Ok");
+                }
                 foreach (var item in items)
                 {
                     Items.Add(item);
