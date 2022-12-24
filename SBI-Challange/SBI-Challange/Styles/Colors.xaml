@@ -4,4 +4,5 @@
              x:Class="SBIChallange.Styles.Colors">
     <Color x:Key="PrimaryColor">#2196F3</Color>
     <Color x:Key="TextColor">#212121</Color>
+    <Color x:Key="Accent">#96d1ff</Color>
 </ResourceDictionary>
