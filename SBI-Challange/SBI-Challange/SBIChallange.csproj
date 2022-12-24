@@ -16,6 +16,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
