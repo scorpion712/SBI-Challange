@@ -23,7 +23,10 @@
             </StackLayout>
         </StackLayout>
         <ScrollView Grid.Row="1">
-            <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="StartAndExpand"
+                         Padding="0,20,0,20"
+                         Margin="0,20,0,20">
                 <Label Text="{x:Static resources:AppResources.WelcomeText}"
                        FontSize="Title"
                        HorizontalOptions="CenterAndExpand"/>
