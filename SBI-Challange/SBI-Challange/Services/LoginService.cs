@@ -13,7 +13,7 @@ namespace SBIChallange.Services
     // This class simulates a service to call an endpoint. In this case, we used mocked data
     public class LoginService : ILoginService
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public IDataStore<User> DataStore => DependencyService.Get<IDataStore<User>>();
 
         public async Task<bool> ValidateUser(string username, string password)
         {
