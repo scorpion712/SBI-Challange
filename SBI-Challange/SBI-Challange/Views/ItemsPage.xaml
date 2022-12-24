@@ -4,7 +4,7 @@
              x:Class="SBI_Challange.Views.ItemsPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:SBI_Challange.ViewModels"  
-             xmlns:model="clr-namespace:SBI_Challange.Models"  
+             xmlns:cells="clr-namespace:SBIChallange.Helpers.Cells"  
              x:Name="BrowseItemsPage">
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
@@ -16,35 +16,7 @@
                         SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" x:DataType="model:User">
-                        <Frame CornerRadius="10">
-                            <StackLayout Orientation="Horizontal" Spacing="10">
-                                <Image Source="icon_user.png"/>
-                                <StackLayout>
-                                    <Label Text="{Binding Name}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemTextStyle}"
-                                           FontSize="16"
-                                           FontAttributes="Bold"/>
-                                    <Label Text="{Binding Id}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="13" />
-                                    <Label Text="{Binding Status}"
-                                           LineBreakMode="NoWrap"
-                                           Style="{DynamicResource ListItemDetailTextStyle}"
-                                           FontSize="10" />
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </Grid.GestureRecognizers>
-                    </Grid>
+                    <cells:UserCard />
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

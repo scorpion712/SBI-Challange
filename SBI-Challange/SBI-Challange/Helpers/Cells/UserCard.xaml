@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:model="clr-namespace:SBI_Challange.Models"
+      x:Class="SBIChallange.Helpers.Cells.UserCard"
+      x:DataType="model:User"
+      xmlns:local="clr-namespace:SBI_Challange.ViewModels"
+      Padding="10">
+    <Frame CornerRadius="10">
+        <StackLayout Orientation="Horizontal"
+                     Spacing="10">
+            <Image Source="icon_user.png" />
+            <StackLayout>
+                <Label Text="{Binding Name}"
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="16"
+                       FontAttributes="Bold" />
+                <Label Text="{Binding Id}"
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="13" />
+                <Label Text="{Binding Status}"
+                       LineBreakMode="NoWrap"
+                       Style="{DynamicResource ListItemDetailTextStyle}"
+                       FontSize="10" />
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+    <Grid.GestureRecognizers>
+        <TapGestureRecognizer NumberOfTapsRequired="1"
+                              Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"
+                              CommandParameter="{Binding .}">
+        </TapGestureRecognizer>
+    </Grid.GestureRecognizers>
+</Grid>
