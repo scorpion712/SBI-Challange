@@ -6,6 +6,7 @@
       x:DataType="model:User"
       xmlns:local="clr-namespace:SBI_Challange.ViewModels"
       xmlns:converters="clr-namespace:SBIChallange.Helpers.Converters"
+      xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
       Padding="10">
     <Grid.Resources>
         <ResourceDictionary>
@@ -16,23 +17,16 @@
     <Frame CornerRadius="10">
         <StackLayout Orientation="Horizontal"
                      Spacing="10">
-            <Image Source="icon_user.png" />
+            <Image Source="icon_user.png"
+                   xct:IconTintColorEffect.TintColor="{Binding Status, Converter={StaticResource StatusToColor}}"/>
             <StackLayout>
                 <Label Text="{Binding Name}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemTextStyle}"
-                       FontSize="16"
-                       FontAttributes="Bold" />
+                       Style="{DynamicResource ListItemTextStyle}" />
                 <Label Text="{Binding Id}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="13" />
+                       Style="{DynamicResource ListItemDetailTextStyle}"/>
                 <Label Text="{Binding Status, Converter={StaticResource StatusToText}}"
-                       LineBreakMode="NoWrap"
-                       Style="{DynamicResource ListItemDetailTextStyle}"
-                       FontSize="10"
-                       TextColor="{Binding Status, Converter={StaticResource StatusToColor}}"
-                       FontAttributes="Bold"/>
+                       Style="{DynamicResource ListItemSecondaryDetailTextStyle}"
+                       TextColor="{Binding Status, Converter={StaticResource StatusToColor}}"/>
             </StackLayout>
         </StackLayout>
     </Frame>
