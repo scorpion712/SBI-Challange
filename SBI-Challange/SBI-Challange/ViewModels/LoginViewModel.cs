@@ -1,5 +1,6 @@
 ﻿using SBI_Challange.Views;
 using SBIChallange.Helpers.Constants;
+using SBIChallange.Resources;
 using SBIChallange.Services.Interfaces;
 using System;
 using System.Diagnostics;
@@ -43,6 +44,7 @@ namespace SBI_Challange.ViewModels
             FillEntries();
         }
 
+        #region Methods
         private async void FillEntries()
         {
             try
@@ -65,17 +67,19 @@ namespace SBI_Challange.ViewModels
                 {
                     await SecureStorage.SetAsync(Constants.USERNAME, Username);
                     await SecureStorage.SetAsync(Constants.PASSWORD, Password);
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
-                    Debug.WriteLine($"Something went wrong while saving user data: {ex.Message}"); 
+                    Debug.WriteLine($"Something went wrong while saving user data: {ex.Message}");
                 }
                 // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("User Error", "Invalid user. Please double check your details or be aware of capitalization", "OK");
+                await Application.Current.MainPage.DisplayAlert(AppResources.ErrorUser, AppResources.ErrorUserMsg, AppResources.OK);
             }
-        }
+        } 
+        #endregion
     }
 }

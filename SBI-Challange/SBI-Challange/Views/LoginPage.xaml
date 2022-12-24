@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:SBIChallange.Resources"
              mc:Ignorable="d"
              x:Class="SBI_Challange.Views.LoginPage"
              Shell.NavBarIsVisible="False">
@@ -13,14 +14,14 @@
               HorizontalOptions="FillAndExpand"> 
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand">
-                <Label Text="Username"
+                <Label Text="{x:Static resources:AppResources.Username}"
                        Style="{StaticResource FormLabelStyle}"/>
                 <Entry Style="{StaticResource FormEntryStyle}"
                        Text="{Binding Username}"/>
             </StackLayout>
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand">
-                <Label Text="Password"
+                <Label Text="{x:Static resources:AppResources.Password}"
                        Style="{StaticResource FormLabelStyle}"/>
                 <Entry IsPassword="True"
                        Style="{StaticResource FormEntryStyle}"
@@ -28,7 +29,7 @@
             </StackLayout>
             <StackLayout VerticalOptions="End"
                          Margin="0,20,0,0">
-                <Button Text="Login"
+                <Button Text="{x:Static resources:AppResources.Login}"
                         Command="{Binding LoginCommand}"
                         Style="{StaticResource ButtonPrimaryStyle}"
                         IsEnabled="{Binding IsButtonEnabled}"/>
