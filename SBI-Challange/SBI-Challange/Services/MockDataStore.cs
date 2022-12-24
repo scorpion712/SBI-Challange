@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SBI_Challange.Services
@@ -9,6 +10,7 @@ namespace SBI_Challange.Services
     public class MockDataStore : IDataStore<Item>
     {
         readonly List<Item> items;
+        readonly Dictionary<string, string> users;
 
         public MockDataStore()
         {
@@ -20,6 +22,11 @@ namespace SBI_Challange.Services
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
                 new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+            };
+
+            users = new Dictionary<string, string>()
+            {
+                { "SBI-TEST", "testing"}
             };
         }
 
@@ -55,6 +62,15 @@ namespace SBI_Challange.Services
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
+        }
+
+        public async Task<bool> ValidateUser(string username, string password)
+        {
+            if (users.ContainsKey("username"))
+            { 
+                return await Task.FromResult(users[username].Equals(password));
+            }
+            return false;
         }
     }
 }
