@@ -126,11 +126,20 @@
   <data name="Login" xml:space="preserve">
     <value>Ingresar</value>
   </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Cerrar Sesión</value>
+  </data>
   <data name="OK" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Contraseña</value>
+  </data>
+  <data name="TabList" xml:space="preserve">
+    <value>Listado</value>
+  </data>
+  <data name="TabWelcome" xml:space="preserve">
+    <value>Bienvenida</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>Usuario</value>

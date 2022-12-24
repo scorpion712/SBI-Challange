@@ -88,6 +88,15 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cerrar Sesión.
+        /// </summary>
+        internal static string LogOut {
+            get {
+                return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         internal static string OK {
@@ -102,6 +111,24 @@ namespace SBIChallange.Resources {
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Listado.
+        /// </summary>
+        internal static string TabList {
+            get {
+                return ResourceManager.GetString("TabList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bienvenida.
+        /// </summary>
+        internal static string TabWelcome {
+            get {
+                return ResourceManager.GetString("TabWelcome", resourceCulture);
             }
         }
         
