@@ -137,9 +137,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\SBI-Challange\SBI-Challange.csproj">
-      <Project>{0417FBB4-1B7A-46B9-975C-994E221CCF28}</Project>
-      <Name>SBI-Challange</Name>
+    <ProjectReference Include="..\SBI-Challange\SBIChallange.csproj">
+      <Project>{9840A848-F764-4C61-A2FD-73B2119C68BE}</Project>
+      <Name>SBIChallange</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
