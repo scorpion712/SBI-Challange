@@ -15,20 +15,23 @@
                          HorizontalOptions="FillAndExpand">
                 <Label Text="Username"
                        Style="{StaticResource FormLabelStyle}"/>
-                <Entry Style="{StaticResource FormEntryStyle}" />
+                <Entry Style="{StaticResource FormEntryStyle}"
+                       Text="{Binding Username}"/>
             </StackLayout>
             <StackLayout Orientation="Vertical"
                          HorizontalOptions="FillAndExpand">
                 <Label Text="Password"
                        Style="{StaticResource FormLabelStyle}"/>
                 <Entry IsPassword="True"
-                       Style="{StaticResource FormEntryStyle}"/>
+                       Style="{StaticResource FormEntryStyle}"
+                       Text="{Binding Password}"/>
             </StackLayout>
             <StackLayout VerticalOptions="End"
                          Margin="0,20,0,0">
                 <Button Text="Login"
                         Command="{Binding LoginCommand}"
-                        Style="{StaticResource ButtonPrimaryStyle}"/>
+                        Style="{StaticResource ButtonPrimaryStyle}"
+                        IsEnabled="{Binding IsButtonEnabled}"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
