@@ -10,22 +10,19 @@ namespace SBI_Challange.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private User _selectedItem;
 
-        public ObservableCollection<Item> Items { get; }
-        public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public ObservableCollection<User> Items { get; }
+        public Command LoadItemsCommand { get; } 
+        public Command<User> ItemTapped { get; }
 
         public ItemsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "List";
+            Items = new ObservableCollection<User>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
-
-            AddItemCommand = new Command(OnAddItem);
+            ItemTapped = new Command<User>(OnItemSelected); 
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -57,7 +54,7 @@ namespace SBI_Challange.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public User SelectedItem
         {
             get => _selectedItem;
             set
@@ -65,14 +62,9 @@ namespace SBI_Challange.ViewModels
                 SetProperty(ref _selectedItem, value);
                 OnItemSelected(value);
             }
-        }
+        } 
 
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
-
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(User item)
         {
             if (item == null)
                 return;
