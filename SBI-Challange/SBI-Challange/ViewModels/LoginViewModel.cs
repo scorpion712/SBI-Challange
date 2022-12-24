@@ -1,6 +1,9 @@
 ﻿using SBI_Challange.Views;
+using SBIChallange.Helpers.Constants;
 using SBIChallange.Services.Interfaces;
-using System; 
+using System;
+using System.Diagnostics;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SBI_Challange.ViewModels
@@ -36,6 +39,21 @@ namespace SBI_Challange.ViewModels
         {
             loginService = DependencyService.Get<ILoginService>();
             LoginCommand = new Command(OnLoginClicked);
+
+            FillEntries();
+        }
+
+        private async void FillEntries()
+        {
+            try
+            {
+                Username = await SecureStorage.GetAsync(Constants.USERNAME);
+                Password = await SecureStorage.GetAsync(Constants.PASSWORD);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Something went wrong while loading user data: {ex.Message}");
+            }
         }
 
         private async void OnLoginClicked(object obj)
@@ -43,6 +61,14 @@ namespace SBI_Challange.ViewModels
             var isUserValid = await loginService.ValidateUser(Username, Password);
             if (isUserValid)
             {
+                try
+                {
+                    await SecureStorage.SetAsync(Constants.USERNAME, Username);
+                    await SecureStorage.SetAsync(Constants.PASSWORD, Password);
+                } catch (Exception ex)
+                {
+                    Debug.WriteLine($"Something went wrong while saving user data: {ex.Message}"); 
+                }
                 // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
                 await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
             }
