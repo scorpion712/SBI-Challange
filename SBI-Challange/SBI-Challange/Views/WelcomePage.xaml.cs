@@ -5,9 +5,9 @@ using Xamarin.Forms.Xaml;
 
 namespace SBI_Challange.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class WelcomePage : ContentPage
     {
-        public AboutPage()
+        public WelcomePage()
         {
             InitializeComponent();
         }
