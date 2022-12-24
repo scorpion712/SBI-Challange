@@ -120,6 +120,12 @@
   <data name="Active" xml:space="preserve">
     <value>Activo</value>
   </data>
+  <data name="ErrorList" xml:space="preserve">
+    <value>Error Listado</value>
+  </data>
+  <data name="ErrorListMsg" xml:space="preserve">
+    <value>Algo salió mal al intentar cargar la lista de usuarios. Por favor, reintente más tarde.</value>
+  </data>
   <data name="ErrorUser" xml:space="preserve">
     <value>Usuario Inválido</value>
   </data>

@@ -70,6 +70,24 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Listado.
+        /// </summary>
+        internal static string ErrorList {
+            get {
+                return ResourceManager.GetString("ErrorList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Algo salió mal al intentar cargar la lista de usuarios. Por favor, reintente más tarde..
+        /// </summary>
+        internal static string ErrorListMsg {
+            get {
+                return ResourceManager.GetString("ErrorListMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuario Inválido.
         /// </summary>
         internal static string ErrorUser {

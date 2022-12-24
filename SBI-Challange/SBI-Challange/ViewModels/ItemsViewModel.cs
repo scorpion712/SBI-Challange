@@ -21,7 +21,7 @@ namespace SBI_Challange.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "List";
+            Title = AppResources.TabList;
             Items = new ObservableCollection<User>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
@@ -40,7 +40,7 @@ namespace SBI_Challange.ViewModels
                 var items = await userService.GetUsers();
                 if (items == null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Algo salió mal al intentar cargar los usuarios. Por favor, reintente más tarde.", "Ok");
+                    await Application.Current.MainPage.DisplayAlert(AppResources.ErrorList, AppResources.ErrorListMsg, AppResources.OK);
                 }
                 foreach (var item in items)
                 {

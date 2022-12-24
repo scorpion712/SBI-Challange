@@ -120,6 +120,12 @@
   <data name="Active" xml:space="preserve">
     <value>Active</value>
   </data>
+  <data name="ErrorList" xml:space="preserve">
+    <value>List Error</value>
+  </data>
+  <data name="ErrorListMsg" xml:space="preserve">
+    <value>Something went wrong while fetching users. Please, try again later.</value>
+  </data>
   <data name="ErrorUser" xml:space="preserve">
     <value>Invalid User</value>
   </data>
