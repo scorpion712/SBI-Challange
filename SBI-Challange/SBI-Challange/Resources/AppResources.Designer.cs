@@ -61,6 +61,15 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Activo.
+        /// </summary>
+        internal static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Usuario Inválido.
         /// </summary>
         internal static string ErrorUser {
@@ -93,6 +102,15 @@ namespace SBIChallange.Resources {
         internal static string LogOut {
             get {
                 return ResourceManager.GetString("LogOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inactivo.
+        /// </summary>
+        internal static string NotActive {
+            get {
+                return ResourceManager.GetString("NotActive", resourceCulture);
             }
         }
         
