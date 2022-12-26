@@ -70,6 +70,15 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email: .
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error Listado.
         /// </summary>
         internal static string ErrorList {
@@ -124,6 +133,15 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nombre: .
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Inactivo.
         /// </summary>
         internal static string NotActive {
@@ -147,6 +165,24 @@ namespace SBIChallange.Resources {
         internal static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teléfono: .
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Estado: .
+        /// </summary>
+        internal static string Status {
+            get {
+                return ResourceManager.GetString("Status", resourceCulture);
             }
         }
         

@@ -120,6 +120,9 @@
   <data name="Active" xml:space="preserve">
     <value>Activo</value>
   </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email: </value>
+  </data>
   <data name="ErrorList" xml:space="preserve">
     <value>Error Listado</value>
   </data>
@@ -138,6 +141,9 @@
   <data name="LogOut" xml:space="preserve">
     <value>Cerrar Sesión</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre: </value>
+  </data>
   <data name="NotActive" xml:space="preserve">
     <value>Inactivo</value>
   </data>
@@ -146,6 +152,12 @@
   </data>
   <data name="Password" xml:space="preserve">
     <value>Contraseña</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Teléfono: </value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado: </value>
   </data>
   <data name="TabList" xml:space="preserve">
     <value>Listado</value>

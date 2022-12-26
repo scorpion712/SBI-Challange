@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SBI_Challange.Views.ItemDetailPage"
              xmlns:converter="clr-namespace:SBIChallange.Helpers.Converters" 
+             xmlns:resources="clr-namespace:SBIChallange.Resources" 
              Title="{Binding Title}">
     <ContentPage.Resources>
         <converter:StatusToTextConverter x:Key="StatusToText" />
@@ -14,21 +15,20 @@
            CornerRadius="10"
            BackgroundColor="{DynamicResource BackgroundColor}">
         <StackLayout Spacing="20"  >
-            <Label Text="Name:"
+            <Label Text="{x:Static resources:AppResources.Name}"
                    Style="{StaticResource ListItemTextStyle}"
-                   FontSize="Medium"
                    TextColor="{DynamicResource TextColor}"/>
             <Label Text="{Binding SelectedUser.Name}" 
                    Style="{StaticResource ListItemDetailTextStyle}" />
-            <Label Text="Email:"
+            <Label Text="{x:Static resources:AppResources.Email}"
                    Style="{StaticResource ListItemTextStyle}" />
             <Label Text="{Binding SelectedUser.Email}"
                    Style="{StaticResource ListItemDetailTextStyle}" />
-            <Label Text="Phone:"
+            <Label Text="{x:Static resources:AppResources.Phone}"
                    Style="{StaticResource ListItemTextStyle}" />
             <Label Text="{Binding SelectedUser.Phone}"
                    Style="{StaticResource ListItemDetailTextStyle}"/>
-            <Label Text="Status:"
+            <Label Text="{x:Static resources:AppResources.Status}"
                    Style="{StaticResource ListItemTextStyle}" />
             <Label Text="{Binding SelectedUser.Status, Converter={StaticResource StatusToText}}"
                    Style="{StaticResource ListItemDetailTextStyle}"
