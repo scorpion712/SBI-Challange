@@ -1,4 +1,5 @@
 ﻿using SBI_Challange.Models;
+using SBIChallange.Resources;
 using SBIChallange.Services.Interfaces;
 using System;
 using System.Diagnostics;
@@ -12,6 +13,11 @@ namespace SBI_Challange.ViewModels
     {
         private string itemId;
         private User _selectedUser;
+
+        public ItemDetailViewModel()
+        {
+            Title = AppResources.Details;
+        }
 
         private IUserService _userService = DependencyService.Get<IUserService>();
 

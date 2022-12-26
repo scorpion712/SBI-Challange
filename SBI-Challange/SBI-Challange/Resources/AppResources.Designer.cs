@@ -70,6 +70,15 @@ namespace SBIChallange.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Detalles.
+        /// </summary>
+        internal static string Details {
+            get {
+                return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email: .
         /// </summary>
         internal static string Email {
