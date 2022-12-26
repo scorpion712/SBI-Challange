@@ -9,5 +9,7 @@ namespace SBIChallange.Services.Interfaces
     public interface IUserService
     {
         Task<IEnumerable<User>> GetUsers();
+
+        Task<User> GetUserById(string id); 
     }
 }

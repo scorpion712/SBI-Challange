@@ -4,8 +4,10 @@ using SBIChallange.Helpers.Constants;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace SBIChallange.Services.Interfaces
@@ -13,10 +15,19 @@ namespace SBIChallange.Services.Interfaces
     public class UserService : IUserService
     {
         private readonly HttpClient client;
+        private IEnumerable<User> list = new List<User>();
         public UserService()
         {
             var httpClientHandler = new HttpClientHandler();
             client = new HttpClient(httpClientHandler);
+        }
+
+        public async Task<User> GetUserById(string id)
+        {
+            // maybe here you have call to API endpoint to get given user id data
+            var user = list.Where(i => i.Id.ToLower().Equals(id.ToLower())).FirstOrDefault();
+
+            return user;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
@@ -27,10 +38,10 @@ namespace SBIChallange.Services.Interfaces
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    var list = JsonConvert.DeserializeObject<List<User>>(content);
+                    list = JsonConvert.DeserializeObject<List<User>>(content);
                     return list;
                 }
-                return new List<User>();
+                return list = new List<User>();
             }
             catch (Exception ex)
             {
