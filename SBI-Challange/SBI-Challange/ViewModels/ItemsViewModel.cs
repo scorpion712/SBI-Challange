@@ -36,12 +36,12 @@ namespace SBI_Challange.ViewModels
 
             try
             {
-                Items.Clear();
                 var items = await userService.GetUsers();
                 if (items == null)
                 {
                     await Application.Current.MainPage.DisplayAlert(AppResources.ErrorList, AppResources.ErrorListMsg, AppResources.OK);
                 }
+                Items.Clear();
                 foreach (var item in items)
                 {
                     Items.Add(item);

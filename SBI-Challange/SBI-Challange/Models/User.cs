@@ -10,7 +10,7 @@ namespace SBI_Challange.Models
         [JsonProperty("Id")]
         public string Id
         {
-            get => String.IsNullOrEmpty(_id) ? Guid.NewGuid().ToString() : _id;
+            get => String.IsNullOrEmpty(_id) ? _id = Guid.NewGuid().ToString() : _id;
             set
             {
                 if (_id.Equals(value)) return; _id = value;

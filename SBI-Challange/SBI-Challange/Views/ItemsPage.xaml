@@ -5,6 +5,8 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:SBI_Challange.ViewModels"
              xmlns:cells="clr-namespace:SBIChallange.Helpers.Cells"
+             xmlns:resources="clr-namespace:SBIChallange.Resources"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              x:Name="BrowseItemsPage">
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
@@ -16,16 +18,8 @@
                  RefreshColor="{DynamicResource PrimaryColor}">
         <CollectionView x:Name="ItemsListView"
                         ItemsSource="{Binding Items}"
-                        SelectionMode="None">
-            <CollectionView.EmptyView>
-                <StackLayout VerticalOptions="CenterAndExpand"
-                             HorizontalOptions="CenterAndExpand">
-                    <Label Text="{x:Static resources:AppResources.UsersListNotFound}"
-                           FontSize="Title"
-                           FontAttributes="Bold"
-                           TextColor="{DynamicResource TextColor}" />
-                </StackLayout>
-            </CollectionView.EmptyView>
+                        SelectionMode="None"
+                        EmptyView="{x:Static resources:AppResources.UsersListNotFound}"> 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <cells:UserCard />
