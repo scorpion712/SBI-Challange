@@ -14,7 +14,8 @@
             <converters:StatusToColorConverter x:Key="StatusToColor" />
         </ResourceDictionary>
     </Grid.Resources>
-    <Frame CornerRadius="10">
+    <Frame CornerRadius="10"
+           BackgroundColor="{DynamicResource BackgroundColor}">
         <StackLayout Orientation="Horizontal"
                      Spacing="10">
             <Image Source="icon_user.png"

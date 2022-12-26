@@ -1,4 +1,5 @@
 ﻿using SBI_Challange.Models;
+using SBIChallange.Services.Interfaces;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -10,28 +11,19 @@ namespace SBI_Challange.ViewModels
     public class ItemDetailViewModel : BaseViewModel
     {
         private string itemId;
-        private string text;
-        private string description;
-        public string Id { get; set; }
+        private User _selectedUser;
 
-        public string Text
-        {
-            get => text;
-            set => SetProperty(ref text, value);
-        }
+        private IUserService _userService = DependencyService.Get<IUserService>();
 
-        public string Description
+        public User SelectedUser
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get { return _selectedUser; }
+            set { if (_selectedUser == value) return;  _selectedUser = value; OnPropertyChanged();}
         }
 
         public string ItemId
         {
-            get
-            {
-                return itemId;
-            }
+            get => itemId;
             set
             {
                 itemId = value;
@@ -43,10 +35,8 @@ namespace SBI_Challange.ViewModels
         {
             try
             {
-                var item = await DataStore.GetItemAsync(itemId);
-                Id = item.Id;
-                Text = item.Name;
-                Description = item.Email;
+                var item = await _userService.GetUserById(itemId);
+                SelectedUser = item;
             }
             catch (Exception)
             {
