@@ -16,8 +16,11 @@ namespace SBI_Challange.Models
                 if (_id.Equals(value)) return; _id = value;
             }
         }
+        private string _name;
         [JsonProperty("Name")]
-        public string Name { get; set; }
+        public string Name { get => _name + LastName; set { if (_name == value) return; _name = value; } }
+        [JsonProperty("LastName")]
+        public string LastName { get; set; }
         [JsonProperty("Email")]
         public string Email { get; set; }
         [JsonProperty("Phone")]
