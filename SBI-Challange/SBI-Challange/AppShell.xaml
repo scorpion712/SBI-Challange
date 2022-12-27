@@ -4,7 +4,9 @@
        xmlns:local="clr-namespace:SBI_Challange.Views"
        Title="SBI_Challange"
        x:Class="SBI_Challange.AppShell"
-       xmlns:resources="clr-namespace:SBIChallange.Resources">
+       xmlns:resources="clr-namespace:SBIChallange.Resources"
+       xmlns:styles="clr-namespace:SBIChallange.Styles"
+       ItemTemplate="{DataTemplate styles:FlyoutItemTemplate}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -15,15 +17,21 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.BackgroundColor"
+                        Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.ForegroundColor"
+                        Value="{DynamicResource ForegroundColor}" />
+                <Setter Property="Shell.TitleColor"
+                        Value="{DynamicResource ForegroundColor}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarBackgroundColor"
+                        Value="{DynamicResource PrimaryColor}" />
+                <Setter Property="Shell.TabBarForegroundColor"
+                        Value="{DynamicResource ForegroundColor}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarTitleColor"
+                        Value="{DynamicResource ForegroundColor}"/>
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
@@ -33,21 +41,25 @@
             https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
             -->
             <Style Class="FlyoutItemLabelStyle" TargetType="Label">
-                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="TextColor"
+                        Value="{DynamicResource ForegroundColor}"></Setter>
             </Style>
-            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Grid" ApplyToDerivedTypes="True">
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel"
+                                            Property="Label.TextColor"
+                                            Value="{DynamicResource PrimaryColor}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor"
+                                            Value="{DynamicResource PrimaryColor}" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -64,7 +76,9 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel"
+                                            Property="Label.TextColor"
+                                            Value="#6b6b6b" /> 
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -74,6 +88,38 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate> 
+                <Grid BackgroundColor="{DynamicResource Accent}"
+                      HeightRequest="200"
+                      RowDefinitions="*, Auto">
+                    <Image Grid.Row="0"
+                           Source="logo"
+                           VerticalOptions="Center"
+                           Aspect="AspectFit"/>
+                <Label Grid.Row="1"
+                       Text="Bienvenido, SBI-TEST" 
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontFamily="Roboto"
+                       Margin="0, 0, 0, 20"/>
+            </Grid> 
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand">
+                <Label Text="SBI-Technology"
+                       TextColor="DarkGray"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="10" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+    
     <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
     </ShellItem>
@@ -83,12 +129,18 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="{x:Static resources:AppResources.TabWelcome}" Icon="icon_home.png">
-        <ShellContent Route="WelcomePage" ContentTemplate="{DataTemplate local:WelcomePage}" />
-    </FlyoutItem>
-    <FlyoutItem Title="{x:Static resources:AppResources.TabList}" Icon="icon_user.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
-    </FlyoutItem>
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="{x:Static resources:AppResources.TabWelcome}"
+             Icon="icon_home.png"
+             Route="WelcomePage">
+            <ShellContent ContentTemplate="{DataTemplate local:WelcomePage}" />
+        </Tab>
+        <Tab Title="{x:Static resources:AppResources.TabList}"
+             Icon="icon_user.png"
+             Route="ItemsPage">
+            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+        </Tab>
+    </FlyoutItem> 
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
     <MenuItem Text="{x:Static resources:AppResources.LogOut}" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">

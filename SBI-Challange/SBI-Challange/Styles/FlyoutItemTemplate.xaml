@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      x:Class="SBIChallange.Styles.FlyoutItemTemplate"
+      xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+      ColumnDefinitions="20, *"
+      Padding="20, 10, 0, 10"
+      ColumnSpacing="20"
+      Style="{StaticResource FloutItemStyle}">
+
+
+    <Grid.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FloutItemStyle"
+                   TargetType="Grid">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal" />
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                            Value="#c2c2c2" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Grid.Resources>
+
+    <Image Grid.Column="0"
+           HorizontalOptions="End"
+           VerticalOptions="Center"
+           Source="{Binding Icon}"
+           xct:IconTintColorEffect.TintColor="{DynamicResource PrimaryColor}"/>
+    <Label  Grid.Column="1"
+            x:Name="mylabel"
+            FontAttributes="Bold"
+            FontSize="16"
+            HorizontalTextAlignment="Start"
+            Text="{Binding Title}"
+            VerticalTextAlignment="Center"
+            TextColor="{DynamicResource PrimaryColor}"/>
+</Grid>
