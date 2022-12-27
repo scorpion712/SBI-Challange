@@ -19,8 +19,10 @@
                 Value="17"/>
         <Setter Property="TextColor" 
                 Value="{DynamicResource TextColor}"/>
-        <Setter Property="HorizontalTextAlignment" 
-                Value="Start"/>
+        <Setter Property="HorizontalTextAlignment"
+                Value="Start" />
+        <Setter Property="PlaceholderColor"
+                Value="DarkGray" />
     </Style>
     <Style x:Key="ButtonPrimaryStyle" TargetType="Button">
         <Setter Property="FontSize" 
@@ -35,6 +37,8 @@
                 Value="CenterAndExpand"/>
         <Setter Property="WidthRequest" 
                 Value="150"/>
+        <Setter Property="TextColor"
+                Value="{DynamicResource ForegroundColor}" />
     </Style>
     <Style x:Key="ListItemTextStyle"
            TargetType="Label">
@@ -53,11 +57,13 @@
                 Value="NoWrap" />
         <Setter Property="FontSize"
                 Value="Small" />
+        <Setter Property="TextColor"
+                Value="Gray" />
     </Style>
     <Style x:Key="ListItemSecondaryDetailTextStyle"
            BasedOn="{StaticResource ListItemTextStyle}"
            TargetType="Label">
         <Setter Property="FontSize"
-                Value="13" />
+                Value="13" /> 
     </Style>
 </ResourceDictionary>

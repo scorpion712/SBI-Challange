@@ -29,7 +29,8 @@
                          Margin="0,20,0,20">
                 <Label Text="{x:Static resources:AppResources.WelcomeText}"
                        FontSize="Title"
-                       HorizontalOptions="CenterAndExpand"/>
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="{DynamicResource PrimaryColor}"/>
             </StackLayout>
         </ScrollView>
     </Grid>

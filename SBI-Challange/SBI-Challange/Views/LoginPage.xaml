@@ -18,6 +18,7 @@
                        Style="{StaticResource FormLabelStyle}"/>
                 <Entry Style="{StaticResource FormEntryStyle}"
                        Text="{Binding Username}"
+                       Placeholder="{x:Static resources:AppResources.Username}" 
                        ReturnType="Next"/>
             </StackLayout>
             <StackLayout Orientation="Vertical"
@@ -26,6 +27,7 @@
                        Style="{StaticResource FormLabelStyle}"/>
                 <Entry IsPassword="True"
                        Style="{StaticResource FormEntryStyle}"
+                       Placeholder="{x:Static resources:AppResources.Password}"
                        Text="{Binding Password}"/>
             </StackLayout>
             <StackLayout VerticalOptions="End"
