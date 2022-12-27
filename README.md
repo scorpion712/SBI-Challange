@@ -1,4 +1,4 @@
-# Xamarin SBI-Challange
+# Xamarin SBI-Challenge
 Desafío en Xamarin Forms para entrevista técnica de la empresa [SBI Technology](https://www.sbi-technology.com/).
 
 ## Enunciado del desafío 🚀
