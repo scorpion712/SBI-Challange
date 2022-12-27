@@ -2,7 +2,7 @@
 Desafío en Xamarin Forms para entrevista técnica de la empresa [SBI Technology](https://www.sbi-technology.com/).
 
 ## Enunciado del desafío 🚀
-El enunciado del desafío se puede encontrar en el siguiente [archivo pdf](https://github.com/scorpion712/SBI-Challange/blob/master/SBI_Challenge%20Xamarin.pdf).
+El enunciado del desafío se puede encontrar en el siguiente [archivo pdf](https://github.com/scorpion712/SBI-Challenge/blob/master/SBI_Challenge%20Xamarin.pdf).
 El proyecto consiste en realizar un Login para inicio de sesión y, una vez iniciada la sesión, se debe mostrar una pantalla de bienvenida. Además, se pide que tenga un menú tipo hamburguesa con el nombre del usuario y dos tabs, una de bienvenida y un listado.
 Para el listado se debe consumir una API para traer los datos y se debe proveer la funcionalidad de abrir en detalle un item en una pantalla nueva.
 
