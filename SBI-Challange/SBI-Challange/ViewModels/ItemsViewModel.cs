@@ -1,5 +1,7 @@
 ﻿using SBI_Challange.Models;
 using SBI_Challange.Views;
+using SBIChallange.Resources;
+using SBIChallange.Services.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -10,22 +12,22 @@ namespace SBI_Challange.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        private Item _selectedItem;
+        private User _selectedItem;
+        public IUserService userService;
 
-        public ObservableCollection<Item> Items { get; }
-        public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
+        public ObservableCollection<User> Items { get; }
+        public Command LoadItemsCommand { get; } 
+        public Command<User> ItemTapped { get; }
 
         public ItemsViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = AppResources.TabList;
+            Items = new ObservableCollection<User>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            ItemTapped = new Command<Item>(OnItemSelected);
+            ItemTapped = new Command<User>(OnItemSelected);
 
-            AddItemCommand = new Command(OnAddItem);
+            userService = DependencyService.Get<IUserService>();
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -34,8 +36,12 @@ namespace SBI_Challange.ViewModels
 
             try
             {
+                var items = await userService.GetUsers();
+                if (items == null)
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.ErrorList, AppResources.ErrorListMsg, AppResources.OK);
+                }
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);
@@ -57,7 +63,7 @@ namespace SBI_Challange.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
+        public User SelectedItem
         {
             get => _selectedItem;
             set
@@ -65,14 +71,9 @@ namespace SBI_Challange.ViewModels
                 SetProperty(ref _selectedItem, value);
                 OnItemSelected(value);
             }
-        }
+        } 
 
-        private async void OnAddItem(object obj)
-        {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
-        }
-
-        async void OnItemSelected(Item item)
+        async void OnItemSelected(User item)
         {
             if (item == null)
                 return;

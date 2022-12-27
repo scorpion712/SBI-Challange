@@ -2,13 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SBI_Challange.Views.ItemDetailPage"
+             xmlns:converter="clr-namespace:SBIChallange.Helpers.Converters" 
+             xmlns:resources="clr-namespace:SBIChallange.Resources" 
              Title="{Binding Title}">
+    <ContentPage.Resources>
+        <converter:StatusToTextConverter x:Key="StatusToText" />
+        <converter:StatusToColorConverter x:Key="StatusToColor" />
+    </ContentPage.Resources>
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
-    </StackLayout>
+    <Frame VerticalOptions="FillAndExpand"
+           Margin="10"
+           CornerRadius="10"
+           BackgroundColor="{DynamicResource BackgroundColor}">
+        <StackLayout Spacing="20"  >
+            <Label Text="{x:Static resources:AppResources.Name}"
+                   Style="{StaticResource ListItemTextStyle}"
+                   TextColor="{DynamicResource TextColor}"/>
+            <Label Text="{Binding SelectedUser.Name}" 
+                   Style="{StaticResource ListItemDetailTextStyle}" />
+            <Label Text="{x:Static resources:AppResources.Email}"
+                   Style="{StaticResource ListItemTextStyle}" />
+            <Label Text="{Binding SelectedUser.Email}"
+                   Style="{StaticResource ListItemDetailTextStyle}" />
+            <Label Text="{x:Static resources:AppResources.Phone}"
+                   Style="{StaticResource ListItemTextStyle}" />
+            <Label Text="{Binding SelectedUser.Phone}"
+                   Style="{StaticResource ListItemDetailTextStyle}"/>
+            <Label Text="{x:Static resources:AppResources.Status}"
+                   Style="{StaticResource ListItemTextStyle}" />
+            <Label Text="{Binding SelectedUser.Status, Converter={StaticResource StatusToText}}"
+                   Style="{StaticResource ListItemDetailTextStyle}"
+                   TextColor="{Binding SelectedUser.Status, Converter={StaticResource StatusToColor}}" />
+        </StackLayout>
+    </Frame>
     
 </ContentPage>

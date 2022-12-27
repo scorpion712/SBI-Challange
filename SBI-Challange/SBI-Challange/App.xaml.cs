@@ -17,6 +17,7 @@ namespace SBI_Challange
 
             DependencyService.Register<MockDataStore>();
             DependencyService.Register<ILoginService, LoginService>();
+            DependencyService.Register<IUserService, UserService>();
 
             MainPage = new AppShell();
         }
